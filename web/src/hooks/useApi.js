@@ -1,26 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+// src/hooks/useApi.js
+import { useEffect, useState } from 'react';
 
 export function useApi(resource, token) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const cache = useRef({});
 
   useEffect(() => {
-    if (cache.current[resource]) {
-      setData(cache.current[resource]);
-      setLoading(false);
-      return;
-    }
-
     fetch(resource, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+      headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
-      .then(json => {
-        cache.current[resource] = json;
-        setData(json);
+      .then(data => {
+        setData(data);
         setLoading(false);
       });
   }, [resource]);

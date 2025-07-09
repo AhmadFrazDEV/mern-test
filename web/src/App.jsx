@@ -5,8 +5,7 @@ import Feed from './pages/feed';
 function App() {
   const [token, setToken] = useState(null);
 
-  if (!token) return <Login onLogin={setToken} />;
-  return <Feed token={token} />;
+  return token ? <Feed token={token} /> : <Login onLogin={setToken} />;
 }
 
 export default App;

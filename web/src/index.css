@@ -60,3 +60,22 @@ button:hover {
   color: #999;
   padding: 20px 0;
 }
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.post {
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+
+.loader {
+  text-align: center;
+  color: #777;
+  margin-top: 16px;
+}

@@ -1,4 +1,3 @@
-// middleware.js
 const jwt = require('jsonwebtoken');
 const SECRET = 'mysecret';
 
@@ -15,7 +14,7 @@ function authorize(roles = []) {
       }
       req.user = decoded;
       next();
-    } catch {
+    } catch (err) {
       res.status(403).json({ error: 'Invalid token' });
     }
   };
